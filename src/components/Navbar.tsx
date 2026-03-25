@@ -26,12 +26,10 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img
-            src="https://muskokaimprovements.ca/wp-content/uploads/2024/01/cropped-MI-Icon.png"
+            src={logo}
             alt="Muskoka Improvements"
-            className="h-10 w-10"
+            className="h-10"
           />
-          <span className="font-serif text-xl font-bold tracking-tight text-foreground hidden sm:block">
-            Muskoka<span className="text-primary"> Improvements</span>
           </span>
         </Link>
 

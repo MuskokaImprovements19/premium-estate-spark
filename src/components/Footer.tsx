@@ -9,8 +9,7 @@ const Footer = () => (
         {/* Brand */}
         <div>
           <Link to="/" className="flex items-center gap-3 mb-4">
-            <img src="https://muskokaimprovements.ca/wp-content/uploads/2024/01/cropped-MI-Icon.png" alt="Muskoka Improvements" className="h-10 w-10" />
-            <span className="font-serif text-xl font-bold text-foreground">Muskoka<span className="text-primary"> Improvements</span></span>
+            <img src={logo} alt="Muskoka Improvements" className="h-10" />
           </Link>
           <p className="text-sm text-muted-foreground leading-relaxed">
             Premium property services in Muskoka since 2019. General contracting, property management, and cottage care you can trust.

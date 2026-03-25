@@ -1,16 +1,129 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowRight, Hammer, TreePine, Ship, Home, Trash2 } from "lucide-react";
+import Layout from "@/components/Layout";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
-  return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
-  );
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.6 } }),
 };
 
-const Index = PlaceholderIndex;
+const services = [
+  { title: "General Contracting", desc: "From foundations to finishing touches — full-service construction across Muskoka.", icon: Hammer, path: "/services/general-contracting", img: "https://muskokaimprovements.ca/wp-content/uploads/2024/01/IMG_3006-scaled.jpg" },
+  { title: "Deck & Dock Building", desc: "Custom waterfront structures built to withstand Muskoka's seasons.", icon: Ship, path: "/services/deck-building", img: "https://muskokaimprovements.ca/wp-content/uploads/2024/06/IMG_5994-scaled.jpg" },
+  { title: "Cottage Renovations", desc: "Transform your cottage into a modern retreat while preserving its character.", icon: Home, path: "/services/cottage-renovations", img: "https://muskokaimprovements.ca/wp-content/uploads/2024/01/IMG_3007-scaled.jpg" },
+  { title: "Property Management", desc: "Year-round peace of mind for your Muskoka property.", icon: TreePine, path: "/property-management", img: "https://muskokaimprovements.ca/wp-content/uploads/2024/06/IMG_6087-scaled.jpg" },
+];
+
+const Index = () => (
+  <Layout>
+    {/* Hero */}
+    <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          src="https://muskokaimprovements.ca/wp-content/uploads/2024/06/IMG_6087-scaled.jpg"
+          alt="Muskoka lakefront property"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
+      </div>
+      <div className="relative z-10 text-center section-padding max-w-4xl mx-auto">
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }} className="text-primary font-semibold tracking-[0.3em] uppercase text-sm mb-4">
+          Muskoka's Premier Property Experts
+        </motion.p>
+        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="font-serif text-5xl md:text-7xl font-bold text-foreground leading-tight mb-6">
+          Building & Managing
+          <br />
+          <span className="text-gradient">Muskoka's Finest</span>
+        </motion.h1>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+          General contracting, property management, and premium cottage services — trusted by homeowners across Bracebridge, Huntsville, Gravenhurst, and all of Muskoka since 2019.
+        </motion.p>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors text-sm uppercase tracking-wide">
+            Get a Free Quote <ArrowRight className="h-4 w-4" />
+          </Link>
+          <Link to="/projects" className="inline-flex items-center gap-2 px-8 py-4 border border-border text-foreground font-semibold rounded-md hover:border-primary hover:text-primary transition-colors text-sm uppercase tracking-wide">
+            View Our Work
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+
+    {/* About */}
+    <section className="section-padding py-24 max-w-7xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-16 items-center">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
+          <p className="text-primary font-semibold tracking-[0.2em] uppercase text-sm mb-3">About Us</p>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Built on <span className="text-gradient">Quality & Trust</span>
+          </h2>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            Founded in 2019, Muskoka Improvements is a full-service general contracting and property management company proudly serving all of Muskoka. Owner-operated by Tyler Kelly, we bring hands-on expertise and personal attention to every project.
+          </p>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            From custom boathouses and docks to complete cottage renovations, we handle every detail so you can enjoy the Muskoka lifestyle you deserve. We also offer comprehensive property management to keep your investment protected year-round.
+          </p>
+          <Link to="/contact" className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-wide hover:gap-3 transition-all">
+            Let's Talk <ArrowRight className="h-4 w-4" />
+          </Link>
+        </motion.div>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2} className="relative">
+          <img src="https://muskokaimprovements.ca/wp-content/uploads/2024/01/IMG_3006-scaled.jpg" alt="Muskoka boathouse project" className="rounded-lg w-full aspect-[4/3] object-cover" />
+          <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-lg shadow-2xl">
+            <p className="text-3xl font-bold font-serif">5+</p>
+            <p className="text-sm font-medium">Years Serving Muskoka</p>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+
+    {/* Services */}
+    <section className="bg-card py-24">
+      <div className="section-padding max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <p className="text-primary font-semibold tracking-[0.2em] uppercase text-sm mb-3">What We Do</p>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground">Our Services</h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {services.map((s, i) => (
+            <motion.div key={s.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}>
+              <Link to={s.path} className="group relative block overflow-hidden rounded-lg aspect-[16/9]">
+                <img src={s.img} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                  <div className="flex items-center gap-3 mb-2">
+                    <s.icon className="h-5 w-5 text-primary" />
+                    <h3 className="font-serif text-xl md:text-2xl font-bold text-foreground">{s.title}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{s.desc}</p>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* CTA Banner */}
+    <section className="relative py-24 overflow-hidden">
+      <div className="absolute inset-0">
+        <img src="https://muskokaimprovements.ca/wp-content/uploads/2024/06/IMG_5994-scaled.jpg" alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-background/85" />
+      </div>
+      <div className="relative z-10 text-center section-padding max-w-3xl mx-auto">
+        <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
+          Ready to Start Your <span className="text-gradient">Project?</span>
+        </h2>
+        <p className="text-muted-foreground text-lg mb-8">
+          Whether it's a new build, renovation, or year-round property care — we're here to make it happen. Reach out for a free, no-obligation quote.
+        </p>
+        <Link to="/contact" className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors text-sm uppercase tracking-wide">
+          Contact Us Today <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
+    </section>
+  </Layout>
+);
 
 export default Index;

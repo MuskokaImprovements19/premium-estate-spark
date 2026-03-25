@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Hammer, TreePine, Ship, Home, Trash2 } from "lucide-react";
+import { ArrowRight, Hammer, TreePine, Ship, Home } from "lucide-react";
 import Layout from "@/components/Layout";
+import { IMAGES } from "@/lib/images";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -9,10 +10,10 @@ const fadeUp = {
 };
 
 const services = [
-  { title: "General Contracting", desc: "From foundations to finishing touches — full-service construction across Muskoka.", icon: Hammer, path: "/services/general-contracting", img: "https://muskokaimprovements.ca/wp-content/uploads/2024/01/IMG_3006-scaled.jpg" },
-  { title: "Deck & Dock Building", desc: "Custom waterfront structures built to withstand Muskoka's seasons.", icon: Ship, path: "/services/deck-building", img: "https://muskokaimprovements.ca/wp-content/uploads/2024/06/IMG_5994-scaled.jpg" },
-  { title: "Cottage Renovations", desc: "Transform your cottage into a modern retreat while preserving its character.", icon: Home, path: "/services/cottage-renovations", img: "https://muskokaimprovements.ca/wp-content/uploads/2024/01/IMG_3007-scaled.jpg" },
-  { title: "Property Management", desc: "Year-round peace of mind for your Muskoka property.", icon: TreePine, path: "/property-management", img: "https://muskokaimprovements.ca/wp-content/uploads/2024/06/IMG_6087-scaled.jpg" },
+  { title: "General Contracting", desc: "From foundations to finishing touches — full-service construction across Muskoka.", icon: Hammer, path: "/services/general-contracting", img: IMAGES.boathouse },
+  { title: "Deck & Dock Building", desc: "Custom waterfront structures built to withstand Muskoka's seasons.", icon: Ship, path: "/services/deck-building", img: IMAGES.deck },
+  { title: "Cottage Renovations", desc: "Transform your cottage into a modern retreat while preserving its character.", icon: Home, path: "/services/cottage-renovations", img: IMAGES.kitchen },
+  { title: "Property Management", desc: "Year-round peace of mind for your Muskoka property.", icon: TreePine, path: "/property-management", img: IMAGES.lakefront },
 ];
 
 const Index = () => (
@@ -20,11 +21,7 @@ const Index = () => (
     {/* Hero */}
     <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src="https://muskokaimprovements.ca/wp-content/uploads/2024/06/IMG_6087-scaled.jpg"
-          alt="Muskoka lakefront property"
-          className="w-full h-full object-cover"
-        />
+        <img src={IMAGES.hero} alt="Muskoka lakefront property" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
       </div>
       <div className="relative z-10 text-center section-padding max-w-4xl mx-auto">
@@ -69,7 +66,7 @@ const Index = () => (
           </Link>
         </motion.div>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2} className="relative">
-          <img src="https://muskokaimprovements.ca/wp-content/uploads/2024/01/IMG_3006-scaled.jpg" alt="Muskoka boathouse project" className="rounded-lg w-full aspect-[4/3] object-cover" />
+          <img src={IMAGES.boathouse} alt="Muskoka boathouse project" className="rounded-lg w-full aspect-[4/3] object-cover" />
           <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-lg shadow-2xl">
             <p className="text-3xl font-bold font-serif">5+</p>
             <p className="text-sm font-medium">Years Serving Muskoka</p>
@@ -108,7 +105,7 @@ const Index = () => (
     {/* CTA Banner */}
     <section className="relative py-24 overflow-hidden">
       <div className="absolute inset-0">
-        <img src="https://muskokaimprovements.ca/wp-content/uploads/2024/06/IMG_5994-scaled.jpg" alt="" className="w-full h-full object-cover" />
+        <img src={IMAGES.deck} alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-background/85" />
       </div>
       <div className="relative z-10 text-center section-padding max-w-3xl mx-auto">

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Shield, TreePine, Snowflake, Droplets, Leaf, Wrench } from "lucide-react";
+import { ArrowRight, Shield, TreePine, Snowflake, Droplets, Leaf, Wrench } from "lucide-react";
 import Layout from "@/components/Layout";
+import { IMAGES } from "@/lib/images";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -19,9 +20,8 @@ const services = [
 
 const PropertyManagement = () => (
   <Layout>
-    {/* Hero */}
     <section className="relative h-[50vh] md:h-[60vh] flex items-end overflow-hidden">
-      <img src="https://muskokaimprovements.ca/wp-content/uploads/2024/06/IMG_6087-scaled.jpg" alt="Muskoka property management" className="absolute inset-0 w-full h-full object-cover" />
+      <img src={IMAGES.lakefront} alt="Muskoka property management" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
       <div className="relative z-10 section-padding pb-12 max-w-7xl mx-auto w-full">
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-primary font-semibold tracking-[0.2em] uppercase text-sm mb-2">Relax, We've Got You Covered</motion.p>
@@ -29,7 +29,6 @@ const PropertyManagement = () => (
       </div>
     </section>
 
-    {/* Intro */}
     <section className="section-padding py-20 max-w-7xl mx-auto">
       <div className="max-w-3xl">
         <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="text-lg text-muted-foreground leading-relaxed mb-4">
@@ -41,7 +40,6 @@ const PropertyManagement = () => (
       </div>
     </section>
 
-    {/* Services Grid */}
     <section className="bg-card py-20">
       <div className="section-padding max-w-7xl mx-auto">
         <div className="text-center mb-16">
@@ -60,15 +58,10 @@ const PropertyManagement = () => (
       </div>
     </section>
 
-    {/* Gallery */}
     <section className="section-padding py-20 max-w-7xl mx-auto">
       <h2 className="font-serif text-3xl font-bold text-foreground mb-10">Properties We Manage</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {[
-          "https://muskokaimprovements.ca/wp-content/uploads/2024/06/IMG_6087-scaled.jpg",
-          "https://muskokaimprovements.ca/wp-content/uploads/2024/06/IMG_5994-scaled.jpg",
-          "https://muskokaimprovements.ca/wp-content/uploads/2024/06/IMG_5993-scaled.jpg",
-        ].map((img, i) => (
+        {[IMAGES.lakefront, IMAGES.deck, IMAGES.cottage].map((img, i) => (
           <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i} className="overflow-hidden rounded-lg">
             <img src={img} alt={`Managed property ${i + 1}`} className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500" />
           </motion.div>
@@ -76,7 +69,6 @@ const PropertyManagement = () => (
       </div>
     </section>
 
-    {/* CTA */}
     <section className="bg-card py-20 text-center">
       <div className="section-padding max-w-3xl mx-auto">
         <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">Let Us Take Care of Your Property</h2>

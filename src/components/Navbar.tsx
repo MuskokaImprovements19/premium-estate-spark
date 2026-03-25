@@ -30,7 +30,7 @@ const Navbar = () => {
             alt="Muskoka Improvements"
             className="h-10"
           />
-          </span>
+          
         </Link>
 
         {/* Desktop Nav */}

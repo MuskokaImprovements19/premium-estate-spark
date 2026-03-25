@@ -1,3 +1,7 @@
+import kitchenReno from "@/assets/photos/kitchen-reno.jpg";
+import bathroom from "@/assets/photos/bathroom.jpg";
+import cottageInterior from "@/assets/photos/cottage-interior.jpg";
+
 // Centralized image URLs - replace these with your own photos when ready
 export const IMAGES = {
   // Hero / main lakefront shot

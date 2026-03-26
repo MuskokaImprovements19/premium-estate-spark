@@ -12,6 +12,7 @@ import DeckBuilding from "./pages/services/DeckBuilding";
 import DockBuilding from "./pages/services/DockBuilding";
 import CottageRenovations from "./pages/services/CottageRenovations";
 import WeeklyGarbage from "./pages/services/WeeklyGarbage";
+import Unsubscribe from "./pages/Unsubscribe";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/property-management" element={<PropertyManagement />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

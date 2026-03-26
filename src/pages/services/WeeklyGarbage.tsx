@@ -38,7 +38,9 @@ const WeeklyGarbage = () => {
     e.preventDefault();
     setLoading(true);
     try {
+      const id = crypto.randomUUID();
       const { error } = await supabase.from("garbage_inquiries" as any).insert({
+        id,
         type: formType,
         name: formData.name,
         email: formData.email,
@@ -47,6 +49,24 @@ const WeeklyGarbage = () => {
         message: formData.message || null,
       });
       if (error) throw error;
+
+      // Send email notification to work@muskokaimprovements.com
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "garbage-inquiry",
+          recipientEmail: "work@muskokaimprovements.com",
+          idempotencyKey: `garbage-${id}`,
+          templateData: {
+            type: formType,
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone || undefined,
+            island: formData.island,
+            message: formData.message || undefined,
+          },
+        },
+      });
+
       setSubmitted(true);
       toast({ title: "Request sent!", description: formType === "bin" ? "We'll be in touch about your bin order." : "We'll get back to you shortly." });
     } catch (err) {

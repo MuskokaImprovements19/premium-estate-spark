@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, CalendarDays, Recycle, Package, AlertCircle, ShieldCheck, Send, CheckCircle } from "lucide-react";
+import { ArrowRight, CalendarDays, Recycle, Package, AlertCircle, ShieldCheck, Send, CheckCircle, Loader2 } from "lucide-react";
 import Layout from "@/components/Layout";
 import { IMAGES } from "@/lib/images";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },

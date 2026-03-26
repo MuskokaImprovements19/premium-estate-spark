@@ -56,7 +56,7 @@ const Index = () => (
             Built on <span className="text-gradient">Quality & Trust</span>
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            Founded in 2019 by Brendna Mizzen and Evan Kieraszewicz, Muskoka Improvements is a full-service general contracting and property management company proudly serving all of Muskoka. Owner-operated with hands-on expertise, we bring personal attention to every project.
+            Founded in 2019 by Brendan Mizzen and Evan Kieraszewicz, Muskoka Improvements is a full-service general contracting and property management company proudly serving all of Muskoka. Owner-operated with hands-on expertise, we bring personal attention to every project.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-6">
             From custom boathouses and docks to complete cottage renovations, we handle every detail so you can enjoy the Muskoka lifestyle you deserve. We also offer comprehensive property management to keep your investment protected year-round.

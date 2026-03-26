@@ -5,7 +5,7 @@ const WeeklyGarbage = () => (
   <ServicePage
     title="Weekly Garbage Collection"
     subtitle="Hassle-Free Waste Management for Your Property"
-    heroImage={IMAGES.landscape}
+    heroImage={IMAGES.garbageLakeside}
     description={[
       "Don't let garbage be a headache at your Muskoka property. Muskoka Improvements offers reliable weekly garbage and recycling collection services so you never have to worry about waste management.",
       "We handle pickup, sorting, and proper disposal — whether you're a seasonal cottage owner or a year-round resident. Our service ensures your property stays clean and bear-free.",

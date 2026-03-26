@@ -9,7 +9,6 @@ const services = [
   { name: "Deck Building", path: "/services/deck-building" },
   { name: "Dock Building", path: "/services/dock-building" },
   { name: "Cottage Renovations", path: "/services/cottage-renovations" },
-  { name: "Weekly Garbage", path: "/services/weekly-garbage" },
 ];
 
 const Navbar = () => {
@@ -83,6 +82,12 @@ const Navbar = () => {
             Property Management
           </Link>
           <Link
+            to="/weekly-garbage"
+            className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-primary ${isActive("/weekly-garbage") ? "text-primary" : "text-muted-foreground"}`}
+          >
+            Weekly Garbage
+          </Link>
+          <Link
             to="/projects"
             className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-primary ${isActive("/projects") ? "text-primary" : "text-muted-foreground"}`}
           >
@@ -125,6 +130,7 @@ const Navbar = () => {
                 ))}
               </div>
               <Link to="/property-management" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Property Management</Link>
+              <Link to="/weekly-garbage" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Weekly Garbage</Link>
               <Link to="/projects" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Projects</Link>
               <Link to="/contact" onClick={() => setMobileOpen(false)} className="text-sm font-semibold uppercase px-6 py-2.5 bg-primary text-primary-foreground rounded-md text-center hover:bg-primary/90">Contact</Link>
             </div>

@@ -16,7 +16,7 @@ const Contact = () => {
     e.preventDefault();
     const subject = encodeURIComponent(`Website Inquiry: ${formData.service || "General"}`);
     const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\n\nMessage:\n${formData.message}`);
-    window.location.href = `mailto:muskokaimprovements@outlook.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:Work@Muskokaimprovements.com?subject=${subject}&body=${body}`;
     toast({ title: "Opening your email client", description: "Your message details have been pre-filled." });
   };
 
@@ -90,14 +90,14 @@ const Contact = () => {
                   <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center"><Phone className="h-5 w-5 text-primary" /></div>
                   <div>
                     <p className="text-xs text-muted-foreground">Phone</p>
-                    <a href="tel:+17052502575" className="text-foreground font-medium hover:text-primary transition-colors">(705) 250-2575</a>
+                    <a href="tel:+17057030070" className="text-foreground font-medium hover:text-primary transition-colors">(705) 703-0070</a>
                   </div>
                 </li>
                 <li className="flex items-center gap-4">
                   <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center"><Mail className="h-5 w-5 text-primary" /></div>
                   <div>
                     <p className="text-xs text-muted-foreground">Email</p>
-                    <a href="mailto:muskokaimprovements@outlook.com" className="text-foreground font-medium hover:text-primary transition-colors text-sm">muskokaimprovements@outlook.com</a>
+                    <a href="mailto:Work@Muskokaimprovements.com" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Work@Muskokaimprovements.com</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
@@ -118,7 +118,7 @@ const Contact = () => {
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                 Interested in joining the Muskoka Improvements team? We're always looking for skilled, motivated individuals. Send us your resume!
               </p>
-              <a href="mailto:muskokaimprovements@outlook.com?subject=Career%20Inquiry" className="text-primary text-sm font-semibold hover:underline">Apply Now →</a>
+              <a href="mailto:Work@Muskokaimprovements.com?subject=Career%20Inquiry" className="text-primary text-sm font-semibold hover:underline">Apply Now →</a>
             </div>
           </motion.div>
         </div>

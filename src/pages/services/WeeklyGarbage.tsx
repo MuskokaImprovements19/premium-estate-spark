@@ -32,12 +32,29 @@ const WeeklyGarbage = () => {
   const [formType, setFormType] = useState<"inquiry" | "bin">("inquiry");
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", island: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // For now, show success — can wire to email/DB later
-    setSubmitted(true);
-    toast({ title: "Request sent!", description: formType === "bin" ? "We'll be in touch about your bin order." : "We'll get back to you shortly." });
+    setLoading(true);
+    try {
+      const { error } = await supabase.from("garbage_inquiries" as any).insert({
+        type: formType,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || null,
+        island: formData.island,
+        message: formData.message || null,
+      });
+      if (error) throw error;
+      setSubmitted(true);
+      toast({ title: "Request sent!", description: formType === "bin" ? "We'll be in touch about your bin order." : "We'll get back to you shortly." });
+    } catch (err) {
+      console.error(err);
+      toast({ title: "Something went wrong", description: "Please try again or contact us directly.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

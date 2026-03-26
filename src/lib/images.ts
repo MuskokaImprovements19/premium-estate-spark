@@ -1,24 +1,31 @@
 import kitchenReno from "@/assets/photos/kitchen-reno.jpg";
 import bathroom from "@/assets/photos/bathroom.jpg";
 import cottageInterior from "@/assets/photos/cottage-interior.jpg";
+import garbageBin from "@/assets/photos/garbage-bin.png";
+import lakefrontProperty from "@/assets/photos/lakefront-property.png";
+import cottageAerial from "@/assets/photos/cottage-aerial.png";
+import dockFlowers from "@/assets/photos/dock-flowers.png";
+import deckFirepit from "@/assets/photos/deck-firepit.jpg";
+import aerialEstate from "@/assets/photos/aerial-estate.jpg";
+import cedarStairs from "@/assets/photos/cedar-stairs.jpg";
 
-// Centralized image URLs - replace these with your own photos when ready
+// Centralized image URLs - real project photos
 export const IMAGES = {
   // Hero / main lakefront shot
-  hero: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=1920&q=80",
+  hero: aerialEstate,
   // Boathouse / general contracting
-  boathouse: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=1200&q=80",
+  boathouse: cottageAerial,
   kitchen: kitchenReno,
   // Dock / waterfront
-  dock: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80",
+  dock: dockFlowers,
   // Deck / outdoor living
-  deck: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+  deck: deckFirepit,
   // Lakefront property
-  lakefront: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=1200&q=80",
+  lakefront: lakefrontProperty,
   // Construction / framing
-  construction: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+  construction: cedarStairs,
   cottage: cottageInterior,
-  landscape: bathroom,
+  landscape: garbageBin,
   // Winter cottage
-  winter: "https://images.unsplash.com/photo-1482192505345-5655af888cc4?w=1200&q=80",
+  winter: bathroom,
 };

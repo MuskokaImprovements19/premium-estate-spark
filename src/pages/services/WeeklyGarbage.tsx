@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, CalendarDays, Recycle, Package, AlertCircle, ShieldCheck, Send, CheckCircle } from "lucide-react";
+import { ArrowRight, CalendarDays, Recycle, Package, AlertCircle, ShieldCheck, Send, CheckCircle, Loader2 } from "lucide-react";
 import Layout from "@/components/Layout";
 import { IMAGES } from "@/lib/images";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -31,12 +32,29 @@ const WeeklyGarbage = () => {
   const [formType, setFormType] = useState<"inquiry" | "bin">("inquiry");
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", island: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // For now, show success — can wire to email/DB later
-    setSubmitted(true);
-    toast({ title: "Request sent!", description: formType === "bin" ? "We'll be in touch about your bin order." : "We'll get back to you shortly." });
+    setLoading(true);
+    try {
+      const { error } = await supabase.from("garbage_inquiries" as any).insert({
+        type: formType,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || null,
+        island: formData.island,
+        message: formData.message || null,
+      });
+      if (error) throw error;
+      setSubmitted(true);
+      toast({ title: "Request sent!", description: formType === "bin" ? "We'll be in touch about your bin order." : "We'll get back to you shortly." });
+    } catch (err) {
+      console.error(err);
+      toast({ title: "Something went wrong", description: "Please try again or contact us directly.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -157,8 +175,8 @@ const WeeklyGarbage = () => {
                   </label>
                   <Textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder={formType === "bin" ? "Any delivery instructions or questions about the bin..." : "Tell us about your property and what you need..."} rows={4} />
                 </div>
-                <Button type="submit" size="lg" className="w-full uppercase tracking-wide font-semibold">
-                  <Send className="h-4 w-4 mr-2" />
+                <Button type="submit" size="lg" disabled={loading} className="w-full uppercase tracking-wide font-semibold">
+                  {loading ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Send className="h-4 w-4 mr-2" />}
                   {formType === "bin" ? "Order Bin" : "Send Inquiry"}
                 </Button>
               </form>

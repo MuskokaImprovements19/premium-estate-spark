@@ -175,8 +175,8 @@ const WeeklyGarbage = () => {
                   </label>
                   <Textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder={formType === "bin" ? "Any delivery instructions or questions about the bin..." : "Tell us about your property and what you need..."} rows={4} />
                 </div>
-                <Button type="submit" size="lg" className="w-full uppercase tracking-wide font-semibold">
-                  <Send className="h-4 w-4 mr-2" />
+                <Button type="submit" size="lg" disabled={loading} className="w-full uppercase tracking-wide font-semibold">
+                  {loading ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Send className="h-4 w-4 mr-2" />}
                   {formType === "bin" ? "Order Bin" : "Send Inquiry"}
                 </Button>
               </form>

@@ -15,17 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
+          bun-version: latest
+      - run: bun install
       - name: Build
         env:
           VITE_SUPABASE_URL: "https://boxyaqqwqnocdtfyaijz.supabase.co"
-          VITE_SUPABASE_PUBLISHABLE_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJveHlhcXF3cW5vY2R0ZnlhaWp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1NTAzOTQsImV4cCI6MjA5MDEyNjM5NH0.vSUJ-rcpDyKwdW6qgLoitDeD-DMt19tgR5AKKYozOZs"
+          VITE_SUPABASE_PUBLISHABLE_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVkNJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJveHlhcXF3cW5vY2R0ZnlhaWp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1MDI1MDAsImV4cCI6MjA1ODA3ODUwMH0.UIEPRMaejPBGcrBBoGxSjVPSFJ7PH7pT9bQ3MBwb_QE"
           VITE_SUPABASE_PROJECT_ID: "boxyaqqwqnocdtfyaijz"
-        run: npm run build
+        run: bun run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

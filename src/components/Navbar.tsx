@@ -78,14 +78,6 @@ const Navbar = () => {
           >
             <div className="section-padding py-6 flex flex-col gap-4">
               <Link to="/" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Home</Link>
-              <div>
-                <p className="text-xs font-semibold uppercase text-muted-foreground mb-2">Services</p>
-                {services.map((s) => (
-                  <Link key={s.path} to={s.path} onClick={() => setMobileOpen(false)} className="block py-2 pl-4 text-sm text-secondary-foreground hover:text-primary">
-                    {s.name}
-                  </Link>
-                ))}
-              </div>
               <Link to="/property-management" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Property Management</Link>
               <Link to="/weekly-garbage" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Weekly Garbage</Link>
               <Link to="/projects" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Projects</Link>

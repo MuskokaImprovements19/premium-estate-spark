@@ -33,7 +33,7 @@ const Index = () => (
           <span className="text-gradient">For Muskoka's Elite</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-          We selectively partner with discerning homeowners who demand nothing less than perfection. Premium property management, bespoke renovations, and white-glove service across Bracebridge, Huntsville, Gravenhurst, and all of Muskoka.
+          We selectively partner with discerning homeowners who demand nothing less than perfection. Premium property management, bespoke renovations, and white-glove service across Bracebridge, Port Carling, Gravenhurst, and all of Muskoka.
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors text-sm uppercase tracking-wide">

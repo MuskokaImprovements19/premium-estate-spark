@@ -37,7 +37,7 @@ const Index = () => (
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors text-sm uppercase tracking-wide">
-            Apply to Become a Client <ArrowRight className="h-4 w-4" />
+            Become a Client <ArrowRight className="h-4 w-4" />
           </Link>
           <Link to="/projects" className="inline-flex items-center gap-2 px-8 py-4 border border-border text-foreground font-semibold rounded-md hover:border-primary hover:text-primary transition-colors text-sm uppercase tracking-wide">
             View Our Portfolio

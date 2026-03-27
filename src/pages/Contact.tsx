@@ -10,12 +10,12 @@ import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", service: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", address: "", service: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent(`Website Inquiry: ${formData.service || "General"}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\n\nMessage:\n${formData.message}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nAddress: ${formData.address}\nService: ${formData.service}\n\nMessage:\n${formData.message}`);
     window.location.href = `mailto:Work@Muskokaimprovements.com?subject=${subject}&body=${body}`;
     toast({ title: "Opening your email client", description: "Your message details have been pre-filled." });
   };
@@ -47,6 +47,27 @@ const Contact = () => {
                 </div>
               </div>
               <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-2 block">Phone</label>
+                  <Input placeholder="(705) 000-0000" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="bg-background border-border" />
+                </div>
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-2 block">Service</label>
+                  <Select onValueChange={(v) => setFormData({ ...formData, service: v })}>
+                    <SelectTrigger className="bg-background border-border">
+                      <SelectValue placeholder="Select a service" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Property Management">Property Management</SelectItem>
+                      <SelectItem value="Weekly Garbage">Weekly Garbage Pickup</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              <div>
+                <label className="text-sm font-medium text-foreground mb-2 block">Address *</label>
+                <Input required placeholder="123 Lakeshore Dr, Bracebridge, ON" value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} className="bg-background border-border" />
+              </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">Phone</label>
                   <Input placeholder="(705) 000-0000" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="bg-background border-border" />

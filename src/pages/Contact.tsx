@@ -101,7 +101,7 @@ const Contact = () => {
                   <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center shrink-0"><MapPin className="h-5 w-5 text-primary" /></div>
                   <div>
                     <p className="text-xs text-muted-foreground">Service Area</p>
-                    <p className="text-foreground font-medium">Bracebridge, Huntsville, Gravenhurst & all of Muskoka</p>
+                    <p className="text-foreground font-medium">Bracebridge, Port Carling, Gravenhurst & all of Muskoka</p>
                   </div>
                 </li>
               </ul>

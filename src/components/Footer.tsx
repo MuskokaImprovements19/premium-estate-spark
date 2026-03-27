@@ -35,7 +35,7 @@ const Footer = () => (
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> <a href="tel:+17057030070" className="hover:text-primary transition-colors">(705) 703-0070</a></li>
             <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> <a href="mailto:Work@Muskokaimprovements.com" className="hover:text-primary transition-colors">Work@Muskokaimprovements.com</a></li>
-            <li className="flex items-start gap-2"><MapPin className="h-4 w-4 text-primary mt-0.5" /> <span>Bracebridge, Huntsville,<br />Gravenhurst & all of Muskoka</span></li>
+            <li className="flex items-start gap-2"><MapPin className="h-4 w-4 text-primary mt-0.5" /> <span>Bracebridge, Port Carling,<br />Gravenhurst & all of Muskoka</span></li>
           </ul>
         </div>
 

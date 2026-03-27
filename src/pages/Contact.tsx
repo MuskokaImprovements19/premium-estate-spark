@@ -68,23 +68,6 @@ const Contact = () => {
                 <label className="text-sm font-medium text-foreground mb-2 block">Address *</label>
                 <Input required placeholder="123 Lakeshore Dr, Bracebridge, ON" value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} className="bg-background border-border" />
               </div>
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">Phone</label>
-                  <Input placeholder="(705) 000-0000" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="bg-background border-border" />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">Service</label>
-                  <Select onValueChange={(v) => setFormData({ ...formData, service: v })}>
-                    <SelectTrigger className="bg-background border-border">
-                      <SelectValue placeholder="Select a service" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Property Management">Property Management</SelectItem>
-                      <SelectItem value="Weekly Garbage">Weekly Garbage Pickup</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
               <div>
                 <label className="text-sm font-medium text-foreground mb-2 block">Message *</label>
                 <Textarea required placeholder="Tell us about your project..." rows={5} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="bg-background border-border" />

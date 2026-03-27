@@ -1,23 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.svg";
 
-const services = [
-  { name: "General Contracting", path: "/services/general-contracting" },
-  { name: "Deck Building", path: "/services/deck-building" },
-  { name: "Dock Building", path: "/services/dock-building" },
-  { name: "Cottage Renovations", path: "/services/cottage-renovations" },
-];
-
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
-  const isServiceActive = services.some((s) => location.pathname === s.path);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
@@ -40,40 +31,6 @@ const Navbar = () => {
           >
             Home
           </Link>
-
-          {/* Services Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
-          >
-            <button
-              className={`flex items-center gap-1 text-sm font-medium tracking-wide uppercase transition-colors hover:text-primary ${isServiceActive ? "text-primary" : "text-muted-foreground"}`}
-            >
-              Services <ChevronDown className="h-3.5 w-3.5" />
-            </button>
-            <AnimatePresence>
-              {servicesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.15 }}
-                  className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-lg shadow-xl overflow-hidden"
-                >
-                  {services.map((s) => (
-                    <Link
-                      key={s.path}
-                      to={s.path}
-                      className="block px-5 py-3 text-sm text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                    >
-                      {s.name}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
 
           <Link
             to="/property-management"
@@ -121,14 +78,6 @@ const Navbar = () => {
           >
             <div className="section-padding py-6 flex flex-col gap-4">
               <Link to="/" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Home</Link>
-              <div>
-                <p className="text-xs font-semibold uppercase text-muted-foreground mb-2">Services</p>
-                {services.map((s) => (
-                  <Link key={s.path} to={s.path} onClick={() => setMobileOpen(false)} className="block py-2 pl-4 text-sm text-secondary-foreground hover:text-primary">
-                    {s.name}
-                  </Link>
-                ))}
-              </div>
               <Link to="/property-management" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Property Management</Link>
               <Link to="/weekly-garbage" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Weekly Garbage</Link>
               <Link to="/projects" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Projects</Link>

@@ -58,15 +58,8 @@ const Contact = () => {
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="General Contracting">General Contracting</SelectItem>
-                      <SelectItem value="Deck Building">Deck Building</SelectItem>
-                      <SelectItem value="Dock Building">Dock Building</SelectItem>
-                      <SelectItem value="Cottage Renovations">Cottage Renovations</SelectItem>
                       <SelectItem value="Property Management">Property Management</SelectItem>
-                      <SelectItem value="Weekly Garbage">Weekly Garbage</SelectItem>
-                      <SelectItem value="Real Estate">Real Estate</SelectItem>
-                      <SelectItem value="Careers">Careers</SelectItem>
-                      <SelectItem value="Other">Other</SelectItem>
+                      <SelectItem value="Weekly Garbage">Weekly Garbage Pickup</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -76,7 +69,7 @@ const Contact = () => {
                 <Textarea required placeholder="Tell us about your project..." rows={5} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="bg-background border-border" />
               </div>
               <Button type="submit" className="w-full py-6 text-sm uppercase tracking-wide font-semibold">
-                <Send className="h-4 w-4 mr-2" /> Send Message
+                <Send className="h-4 w-4 mr-2" /> Request Client Membership
               </Button>
             </form>
           </motion.div>

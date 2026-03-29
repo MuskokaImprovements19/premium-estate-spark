@@ -27,6 +27,8 @@ jobs:
         run: bun run build
       - name: Copy index.html to 404.html for SPA routing
         run: cp dist/index.html dist/404.html
+      - name: Inject .html redirect script into 404.html
+        run: sed -i 's/<head>/<head><script>var p=window.location.pathname;if(p.endsWith(".html")\&\&p!="\/index.html"){window.history.replaceState(null,"",p.slice(0,-5)+window.location.search+window.location.hash)}<\/script>/' dist/404.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

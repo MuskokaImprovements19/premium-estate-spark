@@ -87,7 +87,7 @@ const WeeklyGarbage = () => {
       />
       {/* Hero */}
       <section className="relative h-[50vh] md:h-[60vh] flex items-end overflow-hidden">
-        <img src={IMAGES.garbageLakeside} alt="Weekly Garbage & Recycling Pickup" className="absolute inset-0 w-full h-full object-cover object-[center_35%]" />
+        <img src={IMAGES.garbageLakeside} alt="Weekly Garbage & Recycling Pickup" className="absolute inset-0 w-full h-full object-cover object-[center_45%]" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         <div className="relative z-10 section-padding pb-12 max-w-7xl mx-auto w-full">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-primary font-semibold tracking-[0.2em] uppercase text-sm mb-2">Island Cottage Service</motion.p>

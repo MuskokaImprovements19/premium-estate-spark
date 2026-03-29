@@ -24,4 +24,5 @@ export const IMAGES = {
   landscape: garbageBin,
   winter: bathroom,
   garbageLakeside: garbageBinLakeside,
+  winterCottages: winterCottages,
 };

@@ -25,10 +25,11 @@ jobs:
           VITE_SUPABASE_PUBLISHABLE_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVkNJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJveHlhcXF3cW5vY2R0ZnlhaWp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1MDI1MDAsImV4cCI6MjA1ODA3ODUwMH0.UIEPRMaejPBGcrBBoGxSjVPSFJ7PH7pT9bQ3MBwb_QE"
           VITE_SUPABASE_PROJECT_ID: "boxyaqqwqnocdtfyaijz"
         run: bun run build
-      - name: Copy index.html to 404.html for SPA routing
-        run: cp dist/index.html dist/404.html
-      - name: Inject .html redirect script into 404.html
-        run: sed -i 's/<head>/<head><script>var p=window.location.pathname;if(p.endsWith(".html")\&\&p!="\/index.html"){window.history.replaceState(null,"",p.slice(0,-5)+window.location.search+window.location.hash)}<\/script>/' dist/404.html
+      - name: Create 404.html with .html redirect for SPA routing
+        run: |
+          cp dist/index.html dist/404.html
+          SCRIPT='<script>var p=window.location.pathname;if(p.endsWith(".html")&&p!=="/index.html"){window.history.replaceState(null,"",p.slice(0,-5)+window.location.search+window.location.hash)}</script>'
+          sed -i "s|<head>|<head>${SCRIPT}|" dist/404.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -11,7 +11,7 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-20 section-padding">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
@@ -20,7 +20,6 @@ const Navbar = () => {
             alt="Muskoka Improvements"
             className="h-10"
           />
-          
         </Link>
 
         {/* Desktop Nav */}
@@ -31,7 +30,6 @@ const Navbar = () => {
           >
             Home
           </Link>
-
           <Link
             to="/property-management"
             className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-primary ${isActive("/property-management") ? "text-primary" : "text-muted-foreground"}`}
@@ -58,6 +56,16 @@ const Navbar = () => {
           </Link>
         </div>
 
+        {/* Client Portal - far right */}
+        <a
+          href="https://portal.muskokaimprovements.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden lg:block text-sm font-medium tracking-wide uppercase text-primary hover:text-primary/80 transition-colors"
+        >
+          Client Portal
+        </a>
+
         {/* Mobile Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -82,6 +90,7 @@ const Navbar = () => {
               <Link to="/weekly-garbage" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Weekly Garbage</Link>
               <Link to="/projects" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Projects</Link>
               <Link to="/contact" onClick={() => setMobileOpen(false)} className="text-sm font-semibold uppercase px-6 py-2.5 bg-primary text-primary-foreground rounded-md text-center hover:bg-primary/90">Contact</Link>
+              <a href="https://portal.muskokaimprovements.com" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="text-sm font-medium uppercase text-foreground hover:text-primary">Client Portal</a>
             </div>
           </motion.div>
         )}

@@ -24,6 +24,7 @@ const App = () => (
     <TooltipProvider>
       <Sonner />
       <BrowserRouter basename={basename}>
+		<ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/general-contracting" element={<GeneralContracting />} />
